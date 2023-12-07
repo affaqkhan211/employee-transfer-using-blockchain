@@ -84,7 +84,7 @@ const Footer =  () => {
                         <div className="flex items-center justify-center mt-4">
                             <img src="/images/copyright.webp" alt="" className="mr-1 mb-4 md:mb-0" />
                             <p className="text-white font-thin">
-                                <span className="font-semibold">Air Academic</span>
+                                <span className="font-semibold">Blockchain</span>
                                 2023 copyright all rights reserved
                             </p>
                         </div>
