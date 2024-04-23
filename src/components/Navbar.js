@@ -5,17 +5,17 @@ const Navbar = () => {
 
     const navigate = useNavigate();
     const [isNavOpen, setIsNavOpen] = useState(false);
-    
+
     return (
         <>
             <div className="overflow-x-hidden">
                 <nav className="bg-white">
                     <div className="max-w-6xl flex flex-wrap items-center justify-between mx-auto px-4 py-0 md:py-4">
                         <span
-                            className="self-center text-xl font-bold whitespace-nowrap text-[#000435] cursor-pointer hover:tracking-[3px] duration-300 transition-ease-in-out delay-150"
+                            className="self-center text-xl font-bold whitespace-nowrap text-[#165371] cursor-pointer hover:tracking-[3px] duration-300 transition-ease-in-out delay-150"
                             onClick={() => navigate("/")}
                         >
-                            <img src="/images/logo.webp" alt="" className='w-24 h-12'/> Teachers
+                            <img src="/images/logo.webp" alt="" className='w-24 h-12' /> Teachers
 
                         </span>
                         <div>
@@ -25,9 +25,9 @@ const Navbar = () => {
                                         className="HAMBURGER-ICON space-y-2"
                                         onClick={() => setIsNavOpen((prev) => !prev)}
                                     >
-                                        <span className="block h-0.5 w-8 animate-pulse  bg-[#000435]"></span>
-                                        <span className="block h-0.5 w-8 animate-pulse  bg-[#000435]"></span>
-                                        <span className="block h-0.5 w-8 animate-pulse  bg-[#000435]"></span>
+                                        <span className="block h-0.5 w-8 animate-pulse  bg-[#165371]"></span>
+                                        <span className="block h-0.5 w-8 animate-pulse  bg-[#165371]"></span>
+                                        <span className="block h-0.5 w-8 animate-pulse  bg-[#165371]"></span>
                                     </div>
                                     <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
                                         <div
@@ -48,18 +48,23 @@ const Navbar = () => {
                                             </svg>
                                         </div>
                                         <ul className="flex flex-col items-center justify-between min-h-[250px]">
-                                         
+
                                             <li className="border-b border-gray-400 my-8 uppercase">
-                                                <a className="block py-2 pl-3 pr-4  text-black hover:text-[#000435] hover:font-semibold">
+                                                <a className="block py-2 pl-3 pr-4  text-black hover:text-[#165371] hover:font-semibold" href='/contact'>
                                                     Contact
                                                 </a>
                                             </li>
+                                            <li className="border-b border-gray-400 my-8 uppercase">
+                                                <a className="block py-2 pl-3 pr-4  text-black hover:text-[#165371] hover:font-semibold" href = "/submit-request">
+                                                    Submit Request
+                                                </a>
+                                            </li>
                                             <li className=" my-8 ">
-                                                <a className="py-[10px]  text-sm  px-[26px] text-white bg-[#000435] rounded-full hover:font-semibold text-[16px] font-[400]" onClick={() => navigate("/deo-signin")}>
+                                                <a className="py-[10px]  text-sm  px-[26px] text-white bg-[#165371] rounded-full hover:font-semibold text-[16px] font-[400]" onClick={() => navigate("/deo-signin")}>
                                                     Login as DEO
                                                 </a>
 
-                                                <button className="py-[10px] block mx-auto mt-6 text-sm  px-[26px] text-[#000435] bg-white border-3 border-[#000435] rounded-full hover:font-semibold text-[16px] font-[400] border" onClick={() => navigate("/teacher-signin")}>
+                                                <button className="py-[10px] block mx-auto mt-6 text-sm  px-[26px] text-[#165371] bg-white border-3 border-[v] rounded-full hover:font-semibold text-[16px] font-[400] border" onClick={() => navigate("/teacher-signin")}>
                                                     Login as Teacher
                                                 </button>
                                             </li>
@@ -95,33 +100,41 @@ const Navbar = () => {
                             >
                                 <ul className="font-medium flex flex-col p-4 md:p-0 mt-4  md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white cursor-pointer">
                                     <li>
-                                        <Link to = "/"
-                                            className="block py-2 pl-3 pr-4  text-black hover:text-[#000435] hover:font-semibold"
-                                            
+                                        <Link to="/"
+                                            className="block py-2 pl-3 pr-4  text-black hover:text-[#165371] hover:font-semibold"
+
                                         >
                                             Home
                                         </Link>
                                     </li>
 
                                     <li>
-                                        <Link to = "/contact"
-                                            className="block py-2 pl-3 pr-4  text-black hover:text-[#000435] hover:font-semibold"
-                                            
+                                        <Link to="/contact"
+                                            className="block py-2 pl-3 pr-4  text-black hover:text-[#165371] hover:font-semibold"
+
                                         >
                                             Contact
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/submit-request"
+                                            className="block py-2 pl-3 pr-4  text-black hover:text-[#165371] hover:font-semibold"
+
+                                        >
+                                            Submit Request
                                         </Link>
                                     </li>
 
                                     <li>
                                         <button
-                                            className="py-[10px]  text-sm  px-[26px] text-white bg-[#000435] rounded-full hover:font-semibold text-[16px] font-[400] me-4"
+                                            className="py-[10px]  text-sm  px-[26px] text-white bg-[#165371] rounded-full hover:font-semibold text-[16px] font-[400] me-4"
                                             onClick={() => navigate("/deo-signin")}
                                         >
                                             Login as DEO
                                         </button>
 
                                         <button
-                                            className="py-[10px]  text-sm  px-[26px] text-[#000435] bg-white border-3 border-[#000435] rounded-full hover:font-semibold text-[16px] font-[400] border"
+                                            className="py-[10px]  text-sm  px-[26px] text-[#165371] bg-white border-3 border-[#165371] rounded-full hover:font-semibold text-[16px] font-[400] border"
                                             onClick={() => navigate("/teacher-signin")}
                                         >
                                             Login as Teacher

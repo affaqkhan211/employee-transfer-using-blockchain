@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -8,13 +9,32 @@ const DeoSignup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const formData = {name, email, password}
+
     const goBack = () => {
         navigate("/");
     };
+
+    const handleForm = async () => {
+        try {
+            const { data } = await axios.post("http://localhost:8000/api/deo/register-deo", formData);
+            alert("DEO registered successfully");
+            console.log(data);
+            navigate("/deo-signin")
+        } catch (error) {
+            console.error(error);
+            if (error.response && error.response.status === 409) {
+              alert("Email already in use. Please use a different email.");
+            } else {
+              alert("Error registering DEO. Please try again later.");
+            }
+        }
+        
+    }
     return (
         <div className="">
             <div className="grid grid-cols-1 md:grid-cols-2 h-[100vh]">
-                <div className="bg-[#000435] text-center">
+                <div className="bg-[#165371] text-center">
                     <img
                         className="inline md:h-[400px] h-full md:mt-32 py-8 px-8 md:py-0 md:px-0"
                         src="/images/signup-new.webp"
@@ -24,7 +44,7 @@ const DeoSignup = () => {
                 <div className="things md:px-32 px-4 md:mt-16 mt-4">
                     <div className="text-start">
                         <i
-                            class="fa fa-arrow-left text-3xl text-[#5538c8] "
+                            class="fa fa-arrow-left text-3xl text-[#165371] "
                             onClick={goBack}
                             style={{ cursor: "pointer" }}
                         ></i>
@@ -106,14 +126,15 @@ const DeoSignup = () => {
 
                     <div className="flex justify-center mt-8 flex-col pb-4 md:pb-0 ">
                         <button
-                            className="block w-full py-2 text-base text-white bg-[#000435]  hover:font-semibold px-8 mt-4"
+                            className="block w-full py-2 text-base text-white bg-[#165371]  hover:font-semibold px-8 mt-4"
+                            onClick={handleForm}
                         >
-                            Login
+                            Signup
                         </button>
                         <Link to="/deo-signin">
                             <p className="mt-8 text-center font-semibold">
                                 Already have an account ?
-                                <span className="text-[#5538c8] font-semibold hover:font-bold cursor-pointer">
+                                <span className="text-[#165371] font-semibold hover:font-bold cursor-pointer">
                                     Signin
                                 </span>
                             </p>

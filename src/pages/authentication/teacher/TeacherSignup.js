@@ -1,23 +1,38 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
-const TeacherSignin = () => {
+
+const TeacherSignup = () => {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [name, setName] = useState("");
     const [schoolName, setSchoolName] = useState("");
     const [experience, setExperience] = useState("");
     const [city, setCity] = useState("");
+    const [cnic, setCnic] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const goBack = () => {
         navigate("/");
     };
+
+    const formData = {name, schoolName, experience, city, cnic, email ,password}
+
+    const handleSubmit = async () => {
+        try {
+            const {data} = await axios.post("http://localhost:8000/api/teacher/register-teacher", formData);
+            console.log(data);
+            navigate("/teacher-signin")
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <div className="">
             <div className="grid grid-cols-1 md:grid-cols-2 h-[100vh]">
-                <div className="bg-[#000435] text-center">
+                <div className="bg-[#165371] text-center">
                     <img
                         className="inline md:h-[400px] h-full md:mt-32 py-8 px-8 md:py-0 md:px-0"
                         src="/images/signup-new.webp"
@@ -27,7 +42,7 @@ const TeacherSignin = () => {
                 <div className="things md:px-32 px-4 md:mt-16 mt-4">
                     <div className="text-start">
                         <i
-                            class="fa fa-arrow-left text-3xl text-[#5538c8] "
+                            class="fa fa-arrow-left text-3xl text-[#165371] "
                             onClick={goBack}
                             style={{ cursor: "pointer" }}
                         ></i>
@@ -35,7 +50,7 @@ const TeacherSignin = () => {
                     <div className="text-center">
                     </div>
                     <div className="mt-4">
-                        <h1 className="text-center text-2xl font-bold whitespace-nowrap text-[#5538c8]">
+                        <h1 className="text-center text-2xl font-bold whitespace-nowrap text-[#165371]">
                             Signup As Teacher
                         </h1>
                     </div>
@@ -123,6 +138,26 @@ const TeacherSignin = () => {
                                 className="block  tracking-wide text-gray-700 text-base font-semibold mb-2 "
                                 for="grid-first-name"
                             >
+                                Cnic <span className="text-[red]">*</span>
+                            </label>
+
+                            <input
+                                className="Name w-full py-2 px-2 border focus:outline-none"
+                                type="text"
+                                required
+                                name="cnic"
+                                placeholder="13503-7887654-3"
+                                value={cnic}
+                                onChange={(e) => setCnic(e.target.value)}
+                            />
+                            <span className="text-xs text-[red]"></span>
+                        </div>
+
+                        <div className="w-full  mb-6 md:mb-0 mt-8">
+                            <label
+                                className="block  tracking-wide text-gray-700 text-base font-semibold mb-2 "
+                                for="grid-first-name"
+                            >
                                 Email <span className="text-[red]">*</span>
                             </label>
 
@@ -166,14 +201,15 @@ const TeacherSignin = () => {
 
                     <div className="flex justify-center mt-8 flex-col pb-4 md:pb-4 ">
                         <button
-                            className="block w-full py-2 text-base text-white bg-[#000435]  hover:font-semibold px-8 mt-4"
+                            className="block w-full py-2 text-base text-white bg-[#165371]  hover:font-semibold px-8 mt-4"
+                            onClick = {handleSubmit}
                         >
                             Signup
                         </button>
                         <Link to="/teacher-signin">
                             <p className="mt-8 text-center font-semibold">
                                 Already Have an Account ? 
-                                <span className="text-[#5538c8] font-semibold hover:font-bold cursor-pointer">
+                                <span className="text-[#165371] font-semibold hover:font-bold cursor-pointer">
                                      Signin
                                 </span>
                             </p>
@@ -186,4 +222,4 @@ const TeacherSignin = () => {
     )
 }
 
-export default TeacherSignin
+export default TeacherSignup

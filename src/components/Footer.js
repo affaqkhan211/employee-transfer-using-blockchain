@@ -25,7 +25,7 @@ const Footer =  () => {
     }
     return (
         <>
-            <div className="carousel bg-[#000435] footer">
+            <div className="carousel bg-[#165371] footer">
                 <div className="max-w-screen-xl items-center  mx-auto p-4 ">
                     <div className="flex justify-between mt-10">
 
@@ -33,13 +33,13 @@ const Footer =  () => {
                             <div className="text-white cursor-pointer">
 
                                 <p className=" hover:font-semibold" onClick={EarnWithUs}>
-                                    Earn With Us
+                                    DEO
                                 </p>
                                 <p className="mt-4  hover:font-semibold" onClick={Careers}>
-                                    Careers
+                                    Teachers
                                 </p>
                                 <p className="mt-4  hover:font-semibold" onClick={ContactUs}>
-                                    ContactUs
+                                    Tranfer
                                 </p>
                             </div>
                             <div className="text-white cursor-pointer">

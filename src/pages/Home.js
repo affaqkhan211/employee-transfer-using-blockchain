@@ -16,14 +16,14 @@ const Home = () => {
                         </div>
                         <div>
                             <p className="text-4xl lg:text-[1.375rem] mt-4 md:mt-0 lg:leading-[70.2px] font-bold">
-                                <span className="text-[#5538c8]">Transparent Employee Transfers on Blockchain</span>
+                                <span className="text-[#165371]">Transparent Employee Transfers on Blockchain</span>
                             </p>
                         </div>
 
 
                         <p className="mx-w-96 md:w-96 lg:w-96 lg:text-[1.31rem] mt-4 mx-auto lg:mx-0">
                             Securely streamline
-                            <span className="text-[#5538c8] cursor-pointer hover:font-bold ms-1 me-1">
+                            <span className="text-[#165371] cursor-pointer hover:font-bold ms-1 me-1">
                                 employee transfers with
                             </span>
                             transparent blockchain technology.
@@ -44,7 +44,7 @@ const Home = () => {
 
                 <div>
                     <div className="top-heading text-center mt-20 md:mt-8 mb-8">
-                        <h1 className='text-2xl md:text-4xl underline font-bold text-[#5538c8]'>Blockchain Based Employee Transfer System</h1>
+                        <h1 className='text-2xl md:text-4xl underline font-bold text-[#165371]'>Blockchain Based Employee Transfer System</h1>
                     </div>
 
                     <div className="grid md:grid-cols-3 grid-cols-1 gap-24">
